@@ -9,7 +9,7 @@ This file will be parsed and the output will be placed at `/opt/jackrabbit/repos
 
 To configure a MySQL persistence manager using environment variables, you can do something like:
 
-```
+```xml
 <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
     <param name="driver" value="com.mysql.jdbc.Driver"/>
     <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
