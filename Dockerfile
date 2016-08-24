@@ -16,15 +16,25 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 RUN wget -O /usr/local/tomcat/webapps/ROOT.war http://apache.hippo.nl/jackrabbit/2.13.1/jackrabbit-webapp-2.13.1.war
 
-RUN echo "Deploying war file, so we can make some changes to it later..." \
-    && catalina.sh start && sleep 12 && catalina.sh stop \
-    && rm -rf /usr/local/tomcat/webapps/ROOT.war
+RUN unzip /usr/local/tomcat/webapps/ROOT.war -d /usr/local/tomcat/webapps/ROOT \
+        && rm -rf /usr/local/tomcat/webapps/ROOT.war
 
 RUN ls -la /usr/local/tomcat/webapps
 
 RUN sed -i 's/jackrabbit\/bootstrap\.properties/\/opt\/jackrabbit\/bootstrap\.properties/g' /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml
 
 COPY ./bootstrap.properties /opt/jackrabbit/
-COPY ./repository.xml /opt/jackrabbit/repository.xml
+
+ENV DATABASE_HOST localhost
+ENV DATABASE_PORT 3306
+ENV DATABASE_USER root
+ENV DATABASE_PASS ""
+ENV DATABASE_DB jackrabbit
 
 WORKDIR /opt/jackrabbit
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["catalina.sh", "run"]

@@ -98,9 +98,9 @@
         -->
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
             <param name="driver" value="com.mysql.jdbc.Driver"/>
-            <param name="url" value="jdbc:mysql://mysql:3306/jackrabbit"/> <!-- use your database setup -->
-            <param name="user" value="root"/>                           <!-- use your database user -->
-            <param name="password" value="root"/>                       <!-- use your database user's password -->
+            <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
+            <param name="user" value="${ENV.DATABASE_USER}"/>
+            <param name="password" value="${ENV.DATABASE_PASS}"/>         <!-- use your database user's password -->
             <param name="schema" value="mysql"/>
             <param name="schemaObjectPrefix" value="pm_ws_${wsp.name}_"/>
         </PersistenceManager>
@@ -134,9 +134,9 @@
         -->
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
             <param name="driver" value="com.mysql.jdbc.Driver"/>
-            <param name="url" value="jdbc:mysql://mysql:3306/jackrabbit"/> <!-- use your database setup -->
-            <param name="user" value="root"/>                           <!-- use your database user -->
-            <param name="password" value="root"/>                       <!-- use your database user's password -->
+            <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
+            <param name="user" value="${ENV.DATABASE_USER}"/>
+            <param name="password" value="${ENV.DATABASE_PASS}"/>             <!-- use your database user's password -->
             <param name="schema" value="mysql"/>
             <param name="schemaObjectPrefix" value="pm_vs_"/>
         </PersistenceManager>
@@ -158,9 +158,9 @@
         <Journal class="org.apache.jackrabbit.core.journal.DatabaseJournal">
             <param name="revision" value="${rep.home}/revision"/>
             <param name="driver" value="com.mysql.jdbc.Driver"/>
-            <param name="url" value="jdbc:mysql://mysql:3306/jackrabbit"/>
-            <param name="user" value="root"/>
-            <param name="password" value="root"/>
+            <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
+            <param name="user" value="${ENV.DATABASE_USER}"/>
+            <param name="password" value="${ENV.DATABASE_PASS}"/>
             <param name="databaseType" value="mysql"/>
             <param name="schemaObjectPrefix" value="JOURNAL_"/>
         </Journal>
