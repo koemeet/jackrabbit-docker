@@ -4,7 +4,7 @@ It runs inside Tomcat as a webapp on port `8080`.
 
 ### Configuration
 You can provide your own `repository.xml` configuration, you can do this by creating a volume at the
-path `/opt/jackrabbit/repository.template.xml`. In here you can access environment variables by using `{$ENV.VAR_NAME}`.
+path `/opt/jackrabbit/repository.template.xml`. In here you can access environment variables by using `${ENV.VAR_NAME}`.
 This file will be parsed and the output will be placed at `/opt/jackrabbit/repository.xml` automatically.
 
 To configure a MySQL persistence manager using environment variables, you can do something like:
