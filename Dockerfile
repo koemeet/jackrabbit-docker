@@ -24,7 +24,7 @@ RUN ls -la /usr/local/tomcat/webapps
 RUN sed -i 's/jackrabbit\/bootstrap\.properties/\/opt\/jackrabbit\/bootstrap\.properties/g' /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml
 
 COPY bootstrap.properties /opt/jackrabbit/
-COPY repository.template.xml /opt/jackrabbit/
+COPY repository.template.xml /
 
 ENV DATABASE_HOST localhost
 ENV DATABASE_PORT 3306
