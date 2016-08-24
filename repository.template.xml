@@ -154,7 +154,7 @@
     <!--
         Run with a cluster journal
     -->
-    <Cluster id="node1">
+    <Cluster id="${ENV.HOSTNAME}">
         <Journal class="org.apache.jackrabbit.core.journal.DatabaseJournal">
             <param name="revision" value="${rep.home}/revision"/>
             <param name="driver" value="com.mysql.jdbc.Driver"/>

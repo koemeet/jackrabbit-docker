@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ -f repository.template.xml ]; then
+if [ -f /opt/jackrabbit/repository.template.xml ]; then
 
     for i in `compgen -e`
     do
@@ -13,7 +13,7 @@ if [ -f repository.template.xml ]; then
         echo "s#$KEYWORD#$VALUE#g" >> /tmp/replace.sed
     done
 
-    sed -f /tmp/replace.sed < repository.template.xml > repository.xml
+    sed -f /tmp/replace.sed < /opt/jackrabbit/repository.template.xml > /opt/jackrabbit/repository.xml
     rm -rf /tmp/replace.sed
 fi
 
