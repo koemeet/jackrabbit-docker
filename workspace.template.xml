@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><Workspace name="default">
+<!--
+virtual file system of the workspace:
+class: FQN of class implementing the FileSystem interface
+-->
+<FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+    <param name="path" value="${wsp.home}"/>
+</FileSystem>
+<!--
+persistence manager of the workspace:
+class: FQN of class implementing the PersistenceManager interface
+-->
+<PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
+    <param name="driver" value="com.mysql.jdbc.Driver"/>
+    <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
+    <param name="user" value="${ENV.DATABASE_USER}"/>
+    <param name="password" value="${ENV.DATABASE_PASS}"/>
+    <param name="schema" value="mysql"/>
+    <param name="schemaObjectPrefix" value="pm_ws_${wsp.name}_"/>
+</PersistenceManager>
+<!--
+Search index and the file system it uses.
+class: FQN of class implementing the QueryHandler interface
+-->
+<SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+    <param name="path" value="${wsp.home}/index"/>
+    <param name="supportHighlighting" value="true"/>
+</SearchIndex>
+</Workspace>

@@ -25,6 +25,7 @@ RUN sed -i 's/jackrabbit\/bootstrap\.properties/\/opt\/jackrabbit\/bootstrap\.pr
 
 COPY bootstrap.properties /opt/jackrabbit/
 COPY repository.template.xml /
+COPY workspace.template.xml /
 
 ENV DATABASE_HOST localhost
 ENV DATABASE_PORT 3306
