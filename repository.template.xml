@@ -100,9 +100,9 @@
             <param name="driver" value="com.mysql.jdbc.Driver"/>
             <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
             <param name="user" value="${ENV.DATABASE_USER}"/>
-            <param name="password" value="${ENV.DATABASE_PASS}"/>         <!-- use your database user's password -->
-            <param name="schema" value="mysql"/>
+            <param name="password" value="${ENV.DATABASE_PASS}"/>
             <param name="schemaObjectPrefix" value="pm_ws_${wsp.name}_"/>
+            <param name="consistencyCheck" value="true"/>
         </PersistenceManager>
         <!--
             Search index and the file system it uses.
@@ -136,9 +136,9 @@
             <param name="driver" value="com.mysql.jdbc.Driver"/>
             <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
             <param name="user" value="${ENV.DATABASE_USER}"/>
-            <param name="password" value="${ENV.DATABASE_PASS}"/>             <!-- use your database user's password -->
-            <param name="schema" value="mysql"/>
+            <param name="password" value="${ENV.DATABASE_PASS}"/>
             <param name="schemaObjectPrefix" value="pm_vs_"/>
+            <param name="consistencyCheck" value="true"/>
         </PersistenceManager>
     </Versioning>
 

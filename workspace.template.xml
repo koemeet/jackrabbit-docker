@@ -15,8 +15,8 @@ class: FQN of class implementing the PersistenceManager interface
     <param name="url" value="jdbc:mysql://${ENV.DATABASE_HOST}:${ENV.DATABASE_PORT}/${ENV.DATABASE_NAME}"/>
     <param name="user" value="${ENV.DATABASE_USER}"/>
     <param name="password" value="${ENV.DATABASE_PASS}"/>
-    <param name="schema" value="mysql"/>
     <param name="schemaObjectPrefix" value="pm_ws_${wsp.name}_"/>
+    <param name="consistencyCheck" value="true"/>
 </PersistenceManager>
 <!--
 Search index and the file system it uses.
